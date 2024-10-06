@@ -1,13 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import "./nav.css";
 
-//Insert the FAKEApi data_____________________
+// Insert the FAKEApi data_____________________
 import CurrentUser from "../../FakeAPI/currentUserData";
 
-//Insert Comps
+// Insert Comps
 import DarkMode from "../darkmode/DarkMode";
-//DONt forget the fonts
+// DON'T forget the fonts
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
@@ -16,8 +16,18 @@ import {
   faHome,
   faSearch,
   faUser,
+  faSignOutAlt, // Import the sign-out icon
 } from "@fortawesome/free-solid-svg-icons";
+
 function Nav() {
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  // Function to handle logout
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn"); // Clear user data
+    navigate("/"); // Redirect to login page
+  };
+
   return (
     <nav>
       <div className="nav-container">
@@ -54,9 +64,15 @@ function Nav() {
             <img src={CurrentUser.map((user) => user.ProfileImage)} alt="" />
             <h4>Moana Montinui</h4>
           </div>
+
+          {/* Add Logout Button */}
+          <button onClick={handleLogout} className="logout-button">
+            <FontAwesomeIcon icon={faSignOutAlt} /> Logout
+          </button>
         </div>
       </div>
     </nav>
   );
 }
+
 export default Nav;

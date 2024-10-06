@@ -1,4 +1,4 @@
-import MeessageImage1 from "../assets/img/MessageProfile1.png";
+import MeessageImage1 from "../assets/img/MessageProfile1.jpg";
 import MeessageImage2 from "../assets/img/MessageProfile2.jpg";
 import MeessageImage3 from "../assets/img/MessageProfile4.jpg";
 import MeessageImage4 from "../assets/img/MessageProfile5.jpg";

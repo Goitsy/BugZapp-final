@@ -1,0 +1,30 @@
+.rightBar {
+  height: 100vh/3;
+  background: var(--color-card);
+  position: sticky;
+  top: 3.6rem;
+  overflow: auto;
+}
+.rightBar::-webkit-scrollbar {
+  display: none;
+}
+
+.rightbar-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .right-container {
+    width: fit-content;
+  }
+  .left-container h4 {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .right-bar {
+    display: none;
+  }
+}

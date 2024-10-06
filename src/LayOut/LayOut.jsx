@@ -1,20 +1,22 @@
 import React from "react";
-
-//MY PAGES:plug them first so we can verifyy the routing
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import { Login } from "../pages/login/Login";
 import { Signup } from "../pages/signup/Signup";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { Home } from "../pages/home/Home";
 import { Profile } from "../pages/profile/Profile";
 import { ChatBox } from "../pages/chatbox/ChatBox";
 
-//MY COMPS: verifyeach PAge after build
+// MY COMpS: verify each Page after build
 import Nav from "../components/nav/Nav";
 import LeftBar from "../components/leftbar/LeftBar";
-import { RightBar } from "../components/rightbar/RightBar";
-export default function LayOut() {
-  //How to show feed:
+import RightBar from "../components/rightbar/RightBar";
 
+export default function LayOut() {
   const Feed = () => {
     return (
       <>
@@ -30,29 +32,33 @@ export default function LayOut() {
     );
   };
 
-  //Router SEttings for initialising paths
+  // Router Settings for initializing paths
   const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Navigate to="/login" replace />, // Redirect root path to login
+    },
     {
       path: "/",
       element: <Feed />,
       children: [
         {
-          path: "/home",
+          path: "home",
           element: <Home />,
         },
         {
-          path: "/profile/:id",
+          path: "profile/:id", // Dynamic route for profile
           element: <Profile />,
         },
         {
-          path: "/chatbox/:id",
+          path: "chatbox/:id",
           element: <ChatBox />,
         },
       ],
     },
     {
       path: "/login",
-      element: <Login />,
+      element: <Login />, // Ensure this is the correct Login component
     },
     {
       path: "/signup",
@@ -60,9 +66,5 @@ export default function LayOut() {
     },
   ]);
 
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
