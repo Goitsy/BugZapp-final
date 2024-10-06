@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./login.css"; // Ensure you have styles for your login
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import BugZappLogo from "../../assets/favicon/BugZappLogo.png";
 
 // Hardcoded users
 const fakeUsers = [
@@ -38,24 +41,29 @@ export const Login = () => {
   };
 
   return (
-    <div className="login-page">
-      <div className="card">
+    <div className="login ">
+      <div class="hlogo">
+        Bug<span class="highlight">Zapp</span>
+      </div>
+      <div className="card shiny-effect">
         <div className="left">
-          <h2>
-            - <br />
-            BugZapp <br /> -
-          </h2>
+          <div className="logo-img">
+            <img src={BugZappLogo} alt="BugZapp Logo" />
+          </div>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt,
-            porro expedita eius nisi eveniet quo accusantium praesentium
-            pariatur,
+            Welcome to BugZapp – social platform for programmers to connect,
+            collaborate, and debug together. Join the community and level up
+            your skills today!
           </p>
           <span>Don't Have An Account?</span>
           <Link to="/signup">
             <button className="btn btn-primary">Register</button>
           </Link>
         </div>
+
         <form className="right" onSubmit={handleLogin}>
+          <h2>Login</h2>
+          <br />
           <input
             type="text"
             required
@@ -71,15 +79,19 @@ export const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           {error && <p style={{ color: "red" }}>{error}</p>}
-          <button type="submit" className="btn">
+          <br />
+          <button type="submit" className="btn btn-login">
             Login
           </button>
+          <button className="btn-red" onClick={handleGoogleLogin}>
+            Login with <FontAwesomeIcon icon={faGoogle} />
+          </button>
+          <div class="social-login">
+            <a href="#">Forgot Password?</a>
+          </div>
         </form>
-        <div className="google-login">
-          <p>Or login with Google:</p>
-          <button onClick={handleGoogleLogin}>Login with Google</button>
-        </div>
       </div>
+      <div class="footer">© 2024 BugZapp All rights reserved.</div>
     </div>
   );
 };

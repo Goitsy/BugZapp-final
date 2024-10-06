@@ -3,23 +3,29 @@ import "./signup.css";
 import { Link } from "react-router-dom";
 
 export const Signup = () => {
+  const handleGoogleLogin = () => {
+    // Here we simulate Google login success
+    localStorage.setItem("isLoggedIn", "true");
+    navigate("/home");
+  };
+
   return (
     <div className="signup">
       <div className="card">
         <div className="left">
-          <h2>
-            - <br />
-            BugZapp SignUp <br /> -
-          </h2>
+          <h2>BugZapp</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt,
-            porro expedita eius nisi eveniet quo accusantium praesentium
-            pariatur,
+            Welcome to BugZapp – the go-to social platform for programmers to
+            connect, collaborate, and debug together. Join the community and
+            level up your skills today!
           </p>
           <span>Have An Account?</span>
           <Link to="/login">
             <button className="btn btn-primary">Login</button>
           </Link>
+          <button className="btn-red" onClick={handleGoogleLogin}>
+            Login with Google
+          </button>
         </div>
         <form className="right">
           <input type="text" required placeholder="username" />
