@@ -9,7 +9,7 @@ import { Login } from "../pages/login/Login";
 import { Signup } from "../pages/signup/Signup";
 import Home from "../pages/home/Home";
 import Profile from "../pages/profile/Profile";
-import { ChatBox } from "../pages/chatbox/ChatBox";
+import ChatBox from "../pages/chatbox/ChatBox";
 
 import Nav from "../components/nav/Nav";
 import LeftBar from "../components/leftbar/LeftBar";
