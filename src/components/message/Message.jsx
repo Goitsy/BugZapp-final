@@ -1,9 +1,9 @@
 import "./message.css";
 import { Link } from "react-router-dom";
-//FaKEAPI___________________________
+// Fake APi:___________________
 import MessageData from "../../FakeAPI/MessageData";
 
-//plug in FOnts___________________
+// FontAwesome-Icons:___________________________________
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faEdit } from "@fortawesome/free-solid-svg-icons";
 
@@ -21,8 +21,8 @@ const Message = () => {
       <div className="border-div"></div>
 
       {MessageData.map((mess) => (
-        <Link to="/chatbox/id">
-          <div className="message" key={mess.id}>
+        <Link to={`/chatbox/${mess.id}`} key={mess.id}>
+          <div className="message">
             <div className="user">
               <img src={mess.img} alt="" />
               <div className="green-active"></div>

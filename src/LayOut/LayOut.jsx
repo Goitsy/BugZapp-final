@@ -7,11 +7,10 @@ import {
 } from "react-router-dom";
 import { Login } from "../pages/login/Login";
 import { Signup } from "../pages/signup/Signup";
-import { Home } from "../pages/home/Home";
-import { Profile } from "../pages/profile/Profile";
+import Home from "../pages/home/Home";
+import Profile from "../pages/profile/Profile";
 import { ChatBox } from "../pages/chatbox/ChatBox";
 
-// MY COMpS: verify each Page after build
 import Nav from "../components/nav/Nav";
 import LeftBar from "../components/leftbar/LeftBar";
 import RightBar from "../components/rightbar/RightBar";
@@ -32,11 +31,10 @@ export default function LayOut() {
     );
   };
 
-  // Router Settings for initializing paths
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Navigate to="/login" replace />, // Redirect root path to login
+      element: <Navigate to="/login" replace />,
     },
     {
       path: "/",
@@ -47,7 +45,7 @@ export default function LayOut() {
           element: <Home />,
         },
         {
-          path: "profile/:id", // Dynamic route for profile
+          path: "profile/:id",
           element: <Profile />,
         },
         {
@@ -58,7 +56,7 @@ export default function LayOut() {
     },
     {
       path: "/login",
-      element: <Login />, // Ensure this is the correct Login component
+      element: <Login />,
     },
     {
       path: "/signup",

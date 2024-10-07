@@ -5,7 +5,7 @@ import feedProfile4 from "../assets/img/feedProfile4.jpg";
 import feedProfile5 from "../assets/img/feedProfile5.jpg";
 import feedProfile6 from "../assets/img/feedProfile6.jpg";
 import feedProfile7 from "../assets/img/feedProfile7.jpg";
-import feedProfile8 from "../assets/img/feedProfile8.jpeg";
+import feedProfile8 from "../assets/img/feedProfile8.jpg";
 import feedProfile9 from "../assets/img/feedProfile9.jpg";
 import feedProfile10 from "../assets/img/feedProfile10.jpg";
 import feedProfile11 from "../assets/img/feedProfile11.jpg";
@@ -33,8 +33,17 @@ const Feeds = [
     name: "Lana White",
     feedImage: FeedImage1,
     feedProfile: feedProfile1,
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, distinctio",
+    desc: "On my way to tech conference",
   },
+  {
+    id: 2,
+    userid: 2,
+    name: "John Smith",
+    feedImage: FeedImage2,
+    feedProfile: feedProfile2,
+    desc: "Excited for the weekend!",
+  },
+
   {
     id: 3,
     userid: 3,
@@ -83,6 +92,15 @@ const Feeds = [
     feedProfile: feedProfile8,
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, distinctio",
   },
+  {
+    id: 9,
+    userid: 9,
+    name: "Sarah Johnson",
+    feedImage: FeedImage9,
+    feedProfile: feedProfile9,
+    desc: "Loving the new tech gadgets!",
+  },
+
   {
     id: 10,
     userid: 10,

@@ -1,4 +1,3 @@
-// Logout.js
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -6,10 +5,8 @@ const Logout = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Clear user data from local storage
     localStorage.removeItem("isLoggedIn");
 
-    // Redirect to login page
     navigate("/");
   };
 
