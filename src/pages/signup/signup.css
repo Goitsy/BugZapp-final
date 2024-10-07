@@ -1,20 +1,73 @@
 .signup {
-  background: var(--color-primary);
+  background-image: linear-gradient(
+      208deg,
+      #0b1c3a 26%,
+      #152a6b 65%,
+      #1a6b91 94%
+    ),
+    url(../../assets/img/1.png);
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* or "cover" depending on your preference */
   height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.hlogo {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: var(--color-primary);
+}
+
+.highlight {
+  color: #e2e8f0;
 }
 
 .signup .card {
   display: flex;
-  flex-direction: row-reverse;
   width: 580px;
-  background: white;
-  border: 1px solid white;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px); /* Blur effect for the background */
   border-radius: 2rem;
   overflow: hidden;
+}
+
+.shiny-effect {
+  position: relative;
+  overflow: hidden;
+}
+.shiny-effect:before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 10%;
+  height: 300%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: rotate(45deg);
+  pointer-events: none;
+  animation: shiny 3s ease-in-out infinite;
+}
+
+@keyframes shiny {
+  0% {
+    transform: translateX(-700%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(1500%) rotate(45deg);
+  }
 }
 
 .signup .card .left {
@@ -22,12 +75,14 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 10px;
-  padding: 20px;
+  gap: 19px;
+  padding: 40px;
 }
 
 .signup h2 {
-  color: var(--color-primary);
+  color: white;
+  margin-bottom: 130px;
+  margin-top: 20px;
 }
 
 .signup .card .left p {
@@ -43,9 +98,7 @@
   align-items: center;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
-  gap: 10px;
 }
 
 .signup form {
@@ -54,19 +107,31 @@
 .signup form input {
   padding: 1rem 0;
   width: 100%;
-  border-bottom: 1px solid white;
   margin-left: auto;
   text-align: center;
   background: transparent;
   border: transparent;
   outline: none;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #ccc;
   margin-left: auto;
-  color: white;
+  color: #047ccb;
+  margin-bottom: 5px;
 }
 
 .signup form input::placeholder {
-  color: white;
+  color: #ccc;
   font-size: 1rem;
   text-transform: capitalize;
+}
+
+.footer {
+  margin-top: 20px;
+  font-size: 0.7em;
+  color: #ccc;
+}
+
+.btn-login {
+  background-color: #047ccb;
+  color: white;
+  margin-top: 43px;
 }

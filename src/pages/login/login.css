@@ -81,7 +81,7 @@
 
 .login h2 {
   color: white;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .login .card .left p {
@@ -108,7 +108,6 @@
 .login form input {
   padding: 1rem 0;
   width: 100%;
-  border-bottom: 1px solid white;
   margin-left: auto;
   text-align: center;
   background: transparent;
@@ -149,4 +148,5 @@
 .btn-login {
   background-color: #047ccb;
   color: white;
+  margin-top: 30px;
 }
