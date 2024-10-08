@@ -1,5 +1,9 @@
-// Import the functions you need from the SDKs you need
 //SDK: software development kit/ a set of tools to build software for a particular platform
+/* What Is Google Firebase?
+Google Firebase is a powerful backend-as-a-service platform that offers a suite of tools and 
+services to help developers build, scale, and maintain web and mobile applications. It provides 
+developers with easy-to-use features like real-time databases, authentication, hosting, storage, 
+and machine learning capabilities. It was created in 2011 and acquired by Google in 2014.*/
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
