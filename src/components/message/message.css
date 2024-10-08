@@ -1,29 +1,58 @@
 .Message {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
   background: var(--color-card);
-  margin: 20px auto;
-  border-radius: 1rem;
+  border-radius: 2rem;
   padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: height 0.3s ease; /* Smooth transition for height */
+}
+
+.Message h4 {
+  color: var(--color-primary);
+}
+
+.Message.collapsed {
+  height: 56px; /* Set height when collapsed */
+  overflow: hidden; /* Hide overflow content */
 }
 
 .message-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 1rem;
+  cursor: pointer; /* Indicate that this is clickable */
 }
 
 .message-search {
-  background: var(--color-bg);
   display: flex;
-  gap: 5px;
   align-items: center;
-  border-radius: 0.4rem;
-  margin-bottom: 2rem;
-  padding: 0.7rem;
+  gap: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 2rem;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  color: var(--color-primary);
 }
+
 .message-search input {
-  background: transparent;
-  color: var(--color-text);
+  border: none;
+  outline: none;
+  color: var(--color-primary);
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 20px;
+  background: var(--color-card);
+  transition: padding-left 0.2s;
+}
+
+.message-search input::placeholder {
+  padding-left: 10px;
+  color: #e2e8f0;
 }
 
 .border-div {
@@ -37,6 +66,7 @@
   display: flex;
   margin-bottom: 1rem;
   gap: 5px;
+  cursor: pointer;
 }
 
 .message .user {
