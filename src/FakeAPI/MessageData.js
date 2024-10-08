@@ -7,25 +7,25 @@ import MeessageImage5 from "../assets/img/MessageProfile6.jpg";
 const Messages = [
   {
     id: 1,
-    name: "Ahammed Alli",
+    name: "Emily Whistledown",
     img: MeessageImage1,
     mText: "Lorem ipsum dolor sit amet.",
   },
   {
     id: 2,
-    name: "Mark William",
+    name: "Lerato Mokgethi",
     img: MeessageImage2,
     mText: "Lorem ipsum dolor sit amet.",
   },
   {
     id: 3,
-    name: "Ranvir Sing",
+    name: "Eric Sing",
     img: MeessageImage3,
     mText: "Lorem ipsum dolor sit amet.",
   },
   {
     id: 4,
-    name: "Happy Rose",
+    name: "Jamal Kamano",
     img: MeessageImage4,
     mText: "Lorem ipsum dolor sit amet.",
   },
