@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { signInWithPopup } from "firebase/auth"; // Import Firebase authentication
+import { auth, googleProvider } from "../login/Auth/firebaseConfig"; // Import Firebase config
 import "./login.css"; // Ensure you have styles for your login
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons"; // For Google icon
+
+import BugZappLogo from "../../assets/favicon/BugZappLogo.png";
 
 // Hardcoded users
 const fakeUsers = [
@@ -14,6 +20,12 @@ export const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  const fakeUsers = [
+    { username: "admin", password: "12345" },
+    { username: "user", password: "password" },
+  ];
+
+  // Simulated login
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -22,7 +34,6 @@ export const Login = () => {
     );
 
     if (user) {
-      // Simulate login success
       localStorage.setItem("isLoggedIn", "true");
       navigate("/home");
     } else {
@@ -30,32 +41,44 @@ export const Login = () => {
     }
   };
 
-  // Google Auth Simulation
-  const handleGoogleLogin = () => {
-    // Here we simulate Google login success
-    localStorage.setItem("isLoggedIn", "true");
-    navigate("/home");
+  // Firebase Google login
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      // Optional: Store user information
+      const user = result.user;
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("user", JSON.stringify(user));
+      navigate("/home");
+    } catch (err) {
+      console.error("Google login error:", err);
+    }
   };
 
   return (
-    <div className="login-page">
-      <div className="card">
+    <div className="login ">
+      <div class="hlogo">
+        Bug<span class="highlight">Zapp</span>
+      </div>
+      <div className="card shiny-effect">
         <div className="left">
-          <h2>
-            - <br />
-            BugZapp <br /> -
-          </h2>
+          <div className="logo-img">
+            <img src={BugZappLogo} alt="BugZapp Logo" />
+          </div>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt,
-            porro expedita eius nisi eveniet quo accusantium praesentium
-            pariatur,
+            Welcome to BugZapp – social platform for programmers to connect,
+            collaborate, and debug together. Join the community and level up
+            your skills today!
           </p>
           <span>Don't Have An Account?</span>
           <Link to="/signup">
             <button className="btn btn-primary">Register</button>
           </Link>
         </div>
+
         <form className="right" onSubmit={handleLogin}>
+          <h2>Login</h2>
+          <br />
           <input
             type="text"
             required
@@ -71,15 +94,19 @@ export const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           {error && <p style={{ color: "red" }}>{error}</p>}
-          <button type="submit" className="btn">
+          <br />
+          <button type="submit" className="btn btn-login">
             Login
           </button>
+          <button className="btn-red" onClick={handleGoogleLogin}>
+            Login with <FontAwesomeIcon icon={faGoogle} />
+          </button>
+          <div class="social-login">
+            <a href="#">Forgot Password?</a>
+          </div>
         </form>
-        <div className="google-login">
-          <p>Or login with Google:</p>
-          <button onClick={handleGoogleLogin}>Login with Google</button>
-        </div>
       </div>
+      <div class="footer">© 2024 BugZapp All rights reserved.</div>
     </div>
   );
 };
