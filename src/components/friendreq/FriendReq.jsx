@@ -3,7 +3,7 @@ import commingSoon from "../../assets/img/soon.png";
 
 const FriendReq = () => {
   return (
-    <div>
+    <div className="coom">
       {" "}
       <div className="logo-img">
         <img src={commingSoon} alt="commingSoon Logo" />

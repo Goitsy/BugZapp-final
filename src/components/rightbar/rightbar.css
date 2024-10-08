@@ -4,6 +4,7 @@
   position: sticky;
   top: 3.6rem;
   overflow: auto;
+  border-radius: 2rem;
 }
 .rightBar::-webkit-scrollbar {
   display: none;

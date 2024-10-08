@@ -51,13 +51,13 @@ const AddPost = ({ onPostAdded }) => {
         <img src={CurrentUserData[0].ProfileImage} alt="Profile" />
         <input
           type="text"
-          placeholder="What's on your mind?"
+          placeholder="<Commit your thoughts here (no rollbacks)!>"
           value={postText}
           onChange={(e) => setPostText(e.target.value)}
           required
         />
-        <button type="submit" className="btn btn-primary">
-          Post
+        <button type="submit" className="btn-pos">
+          Commit
         </button>
       </div>
 
@@ -94,7 +94,7 @@ const AddPost = ({ onPostAdded }) => {
         </span>
         <span>
           <FontAwesomeIcon icon={faSmile} />
-          Feeling
+          Coding Mode
         </span>
       </div>
 

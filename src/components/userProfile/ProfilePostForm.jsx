@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
+import { faSmile, faVideo, faTags } from "@fortawesome/free-solid-svg-icons";
+
 import "./profilePostForm.css";
 import CurrentUser from "../../FakeAPI/currentUserData"; // Adjust the import path as necessary
 
@@ -10,12 +12,12 @@ const ProfilePostForm = ({ onPostAdded }) => {
   const [postImage, setPostImage] = useState(null);
 
   // Handle image upload
-  const handleImageUpload = (e) => {
+  const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setPostImage(reader.result);
+        setSelectedFile(reader.result);
       };
       reader.readAsDataURL(file);
     }
@@ -42,19 +44,23 @@ const ProfilePostForm = ({ onPostAdded }) => {
   };
 
   return (
-    <form onSubmit={handlePostSubmit} className="profile-post-form">
-      <div className="post-header">
+    <form onSubmit={handlePostSubmit} className="postForm">
+      <div className="form-top">
         <img
           src={CurrentUser[0].ProfileImage}
           alt="Profile"
           className="post-profile-image"
         />
-        <textarea
-          placeholder="What's on your mind?"
+        <input
+          placeholder="<Commit your thoughts here (no rollbacks)!>"
           value={postContent}
           onChange={(e) => setPostContent(e.target.value)}
           className="post-input"
+          required
         />
+        <button type="submit" className="btn-pos">
+          Commit
+        </button>
       </div>
 
       {postImage && (
@@ -70,21 +76,41 @@ const ProfilePostForm = ({ onPostAdded }) => {
         </div>
       )}
 
-      <div className="actions">
-        <label htmlFor="imageUpload" className="icon">
-          <FontAwesomeIcon icon={faImage} />
+      <div className="post-categories">
+        <label htmlFor="imageFile">
           <input
-            id="imageUpload"
             type="file"
+            id="imageFile"
             accept="image/*"
-            style={{ display: "none" }}
-            onChange={handleImageUpload}
+            onChange={handleFileChange}
           />
+          <span>
+            <FontAwesomeIcon icon={faImage} />
+            Photos
+          </span>
         </label>
 
-        <button type="submit" className="btn-post">
-          Post
-        </button>
+        <label htmlFor="videoFile">
+          <input
+            type="file"
+            id="videoFile"
+            accept="video/*"
+            onChange={handleFileChange}
+          />
+          <span>
+            <FontAwesomeIcon icon={faVideo} />
+            Videos
+          </span>
+        </label>
+
+        <span>
+          <FontAwesomeIcon icon={faTags} />
+          Tag
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faSmile} />
+          Coding Mode
+        </span>
       </div>
     </form>
   );
