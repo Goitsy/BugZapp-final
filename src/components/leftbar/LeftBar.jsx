@@ -19,7 +19,7 @@ function LeftBar() {
       <div className="left-container">
         <div className="menu">
           <Link to="/profile/id">
-            <div className="user">
+            <div className="userm">
               <img src={CurrentUser.map((user) => user.ProfileImage)} alt="" />
               <h4>Moana Montinui</h4>
             </div>
@@ -72,6 +72,10 @@ function LeftBar() {
             </div>
           </Link>
         </div>
+      </div>
+      <div class="footerl">
+        © 2024 BugZapp All rights reserved. developed by Goitseone Montsho &
+        Abdelrahman Ibrahim
       </div>
     </div>
   );

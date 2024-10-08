@@ -9,7 +9,7 @@ const Feed = ({ feed, onDelete }) => {
     <div className="feed">
       <div className="top-content">
         <Link to={`/profile/${feed.userid}`}>
-          <div className="user">
+          <div className="usern">
             <img src={feed.feedProfile} alt="Profile" />
             <div>
               <h5>{feed.name}</h5>

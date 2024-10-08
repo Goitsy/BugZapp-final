@@ -1,7 +1,6 @@
 .left-bar {
   position: sticky;
-  top: 3.6rem;
-  background: var(--color-card);
+  top: 5.4rem;
   height: 100vh;
   overflow: auto;
 }
@@ -11,8 +10,8 @@
 }
 
 .left-container {
-  width: 80%;
-  margin: 0 auto;
+  width: 60%;
+  margin-left: 15px;
 }
 .left-container .user {
   margin-top: 20px;
@@ -26,6 +25,7 @@
 }
 .left-container .item img {
   width: 28px;
+  margin-left: 5px;
 }
 
 hr {
@@ -38,6 +38,26 @@ hr {
 .others {
   color: var(--color-soft);
   font-size: 0.9rem;
+}
+
+.userm {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.userm img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.footerl {
+  margin-top: 85%;
+  width: 65%;
+  font-size: 0.7em;
+  color: #ccc;
 }
 
 /*Play with media queri*/

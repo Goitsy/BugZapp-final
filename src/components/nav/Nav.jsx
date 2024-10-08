@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import "./nav.css";
+import BugZappLogo from "../../assets/favicon/BugZappLogo.png";
 
 // Insert the FAKEApi data_____________________
 import CurrentUser from "../../FakeAPI/currentUserData";
@@ -30,11 +31,15 @@ function Nav() {
 
   return (
     <nav>
+      <div className="logo-imgnav">
+        <img src={BugZappLogo} alt="BugZapp Logo" />
+      </div>
+      <div class="hlogonav">
+        Bug<span class="highlight">Zapp</span>
+      </div>
       <div className="nav-container">
         <div className="nav-left">
-          <Link to="/">
-            <h3 className="logo">BugZapp</h3>
-          </Link>
+          <Link to="/"></Link>
           <Link to="/home">
             <FontAwesomeIcon icon={faHome} />
           </Link>
@@ -44,7 +49,7 @@ function Nav() {
 
           <div className="Nav-Searchbar">
             <FontAwesomeIcon icon={faSearch} />
-            <input type="search" />
+            <input type="search" placeholder="Search BugZapp" />
           </div>
         </div>
 
@@ -55,22 +60,21 @@ function Nav() {
           <Link to="/">
             <FontAwesomeIcon icon={faBell} />
           </Link>
-          <DarkMode />
-          <Link to="/">
-            <FontAwesomeIcon icon={faBars} />
-          </Link>
 
-          <div className="user">
+          <div className="usern">
             <img src={CurrentUser.map((user) => user.ProfileImage)} alt="" />
-            <h4>Moana Montinui</h4>
           </div>
-
-          {/* Add Logout Button */}
-          <button onClick={handleLogout} className="logout-button">
-            <FontAwesomeIcon icon={faSignOutAlt} /> Logout
-          </button>
         </div>
       </div>
+
+      <div className="lamp">
+        <DarkMode />
+      </div>
+
+      {/* Add Logout Button */}
+      <button onClick={handleLogout} className="logout-button">
+        Logout{" "}
+      </button>
     </nav>
   );
 }

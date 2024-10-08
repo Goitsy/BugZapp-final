@@ -12,11 +12,11 @@
 
 :root {
   --color-primary: #4cb6e8;
-  --text-color: black;
+  --text-color: #e2e8f0;
   --color-bg: #eeeeee;
-  --color-card: white;
+  --color-card: rgba(255, 255, 255, 0.1);
   --color-soft: #ccc;
-  --color-border: lightgray;
+  --color-border: rgba(255, 255, 255, 0.3);
   --color-red: red;
 }
 
@@ -26,14 +26,18 @@
   --color-card: #111111;
 }
 body {
-  overflow-x: hidden;
-  background-color: #0b1c3a;
   background-image: linear-gradient(
-    190deg,
-    #0b1c3a 0%,
-    #152a6b 36%,
-    #1a6b91 74%
-  );
+      208deg,
+      #0b1c3a 26%,
+      #152a6b 65%,
+      #1a6b91 94%
+    ),
+    url(./assets/img/1.png);
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  overflow-x: hidden;
 }
 
 .container {
@@ -71,11 +75,6 @@ img {
 
 .user h4 {
   color: var(--color-primary);
-}
-
-body {
-  background: var(--color-bg);
-  color: var(--color-soft);
 }
 
 small,
