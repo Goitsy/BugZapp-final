@@ -56,7 +56,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="login ">
+    <div className="login">
       <div class="hlogo">
         Bug<span class="highlight">Zapp</span>
       </div>
