@@ -107,8 +107,8 @@ export const Login = () => {
         </form>
       </div>
       <div class="footer">
-        © 2024 BugZapp All rights reserved. developed by Goitseone Montsho &
-        Abdelrahman Ibrahim
+        © 2024 BugZapp All rights reserved. Developed by Goitseone Montsho &
+        Abdelrahman Ibrahim.
       </div>
     </div>
   );
