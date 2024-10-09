@@ -27,20 +27,21 @@ const AddPost = ({ onPostAdded }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Create new post object
     const newPost = {
-      id: Date.now(), // Generate a unique ID based on current timestamp
-      userid: CurrentUserData[0].userid, // Assuming you have userid in your current user data
+      id: Date.now(),
+      userid: CurrentUserData[0].userid,
       name: CurrentUserData[0].name,
       feedImage: selectedFile,
       feedProfile: CurrentUserData[0].ProfileImage,
       desc: postText,
     };
 
-    // Call parent function to add post
+    const storedPosts = JSON.parse(localStorage.getItem("userPosts")) || [];
+    const updatedPosts = [...storedPosts, newPost];
+    localStorage.setItem("userPosts", JSON.stringify(updatedPosts));
+
     onPostAdded(newPost);
 
-    // Reset form fields
     setPostText("");
     setSelectedFile(null);
   };
@@ -49,6 +50,8 @@ const AddPost = ({ onPostAdded }) => {
     <form className="postForm" onSubmit={handleSubmit}>
       <div className="user form-top">
         <img src={CurrentUserData[0].ProfileImage} alt="Profile" />
+
+        {/* Controlled input for post text */}
         <input
           type="text"
           placeholder="<Commit your thoughts here (no rollbacks)!>"
@@ -56,6 +59,7 @@ const AddPost = ({ onPostAdded }) => {
           onChange={(e) => setPostText(e.target.value)}
           required
         />
+
         <button type="submit" className="btn-pos">
           Commit
         </button>
