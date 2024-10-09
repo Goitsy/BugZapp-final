@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListDots, faTrash } from "@fortawesome/free-solid-svg-icons"; // Import the trash icon
-import "./feeds.css";
+import "./feed.css";
 
 const Feed = ({ feed, onDelete }) => {
   return (

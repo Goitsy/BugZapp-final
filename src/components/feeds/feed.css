@@ -1,4 +1,3 @@
-/* Feed Post Container */
 .feed {
   background: var(--color-card);
   padding: 20px;
@@ -7,7 +6,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Post Header (User Info, Timestamp, and Delete Button) */
 .feed .top-content {
   display: flex;
   justify-content: space-between;
@@ -17,7 +15,6 @@
   border-bottom: 1px solid var(--color-border);
 }
 
-/* User Info (Profile Picture and Name) */
 .feed .user {
   display: flex;
   align-items: center;
@@ -32,27 +29,25 @@
 
 .feed .user h5 {
   margin: 0;
-  font-size: 1.2rem; /* Increased font size for user name */
+  font-size: 1.2rem;
   color: var(--color-text-primary);
 }
 
 .feed .user small {
   color: var(--color-text-secondary);
-  font-size: 0.85rem; /* Optional: slightly smaller for the timestamp */
+  font-size: 0.85rem;
 }
 
-/* Post Content (Text and Media) */
 .feed .middle-content {
   margin-top: 10px;
 }
 
 .feed .middle-content p {
-  font-size: 1.1rem; /* Increased font size for post text */
+  font-size: 1.1rem;
   color: var(--color-text-primary);
   margin-bottom: 1rem;
 }
 
-/* Images inside posts */
 .feed .middle-content img {
   width: 100%;
   max-height: 500px;
@@ -60,7 +55,6 @@
   border-radius: 0.5rem;
 }
 
-/* Delete Button */
 .feed .delete-button {
   background-color: rgb(125, 69, 197);
   color: white;
@@ -74,7 +68,6 @@
   background-color: rgb(165, 76, 224);
 }
 
-/* Post Media */
 .feed .post-image,
 .feed .post-video {
   width: 100%;
