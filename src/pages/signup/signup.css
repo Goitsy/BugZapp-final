@@ -113,6 +113,47 @@
   text-transform: capitalize;
 }
 
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  color: var(--color-primary);
+}
+
+.login-link p {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.login-link a {
+  color: var(--color-highlight);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  color: #047ccb;
+  text-decoration: underline;
+}
+
+.success-message {
+  color: #d9ebda;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.success-message a {
+  color: var(--color-highlight);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.success-message a:hover {
+  color: #047ccb;
+  text-decoration: underline;
+}
+
 .footer {
   margin-top: 20px;
   font-size: 0.7em;

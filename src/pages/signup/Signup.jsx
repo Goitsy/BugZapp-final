@@ -39,7 +39,6 @@ export const Signup = () => {
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      // Optional: Store user information
       const user = result.user;
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("user", JSON.stringify(user));
@@ -52,7 +51,7 @@ export const Signup = () => {
   return (
     <div className="signup">
       <div className="hlogo">
-        Bug<span class="highlight">Zapp</span>
+        Bug<span className="highlight">Zapp</span>
       </div>
 
       <div className="card shiny-effect">
@@ -118,23 +117,21 @@ export const Signup = () => {
           />
 
           {errorMessage && <p className="error-message">{errorMessage}</p>}
-          {successMessage && (
-            <p className="success-message">{successMessage}</p>
-          )}
 
           <button type="submit" className="btn btn-login1">
             Sign Up
           </button>
-        </form>
 
-        {successMessage && (
-          <div className="login-link">
-            <p>Registration successful! You can now</p>
-            <Link to="/login">Login</Link>
-          </div>
-        )}
+          {/* Success message directly after the submit button */}
+          {successMessage && (
+            <p className="success-message">
+              {successMessage} You can now <Link to="/login">Login</Link>.
+            </p>
+          )}
+        </form>
       </div>
-      <div class="footer">
+
+      <div className="footer">
         © 2024 BugZapp All rights reserved. Developed by Goitseone Montsho &
         Abdelrahman Ibrahim.
       </div>
