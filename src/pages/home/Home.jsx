@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AddPost from "../../components/addPost/AddPost";
 import Feeds from "../../components/feeds/Feeds";
+import LeftBar from "../../components/leftbar/LeftBar";
 
 import FeedsData from "../../FakeAPI/HomeFeedData";
 import CurrentUserData from "../../FakeAPI/currentUserData";
