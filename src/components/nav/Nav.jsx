@@ -34,7 +34,7 @@ function Nav() {
       <div className="logo-imgnav">
         <img src={BugZappLogo} alt="BugZapp Logo" />
       </div>
-      <div class="hlogonav">
+      <div className="hlogonav">
         Bug<span class="highlight">Zapp</span>
       </div>
       <div className="nav-container">

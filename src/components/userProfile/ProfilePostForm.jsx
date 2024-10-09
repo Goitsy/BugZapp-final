@@ -1,53 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 import "./profilePostForm.css";
 import CurrentUser from "../../FakeAPI/currentUserData";
 
 const ProfilePostForm = ({ onPostAdded }) => {
-  const [postContent, setPostContent] = useState(""); // state for post text
-  const [postImage, setPostImage] = useState(null); // state for post image
+  const [postContent, setPostContent] = useState("");
+  const [postImage, setPostImage] = useState(null);
 
-  // Handler for image upload
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setPostImage(reader.result); // set the uploaded image
+        setPostImage(reader.result);
       };
       reader.readAsDataURL(file);
     }
   };
 
-  // Handler for form submission
   const handlePostSubmit = (e) => {
     e.preventDefault();
 
-    // Prevent submission if both text and image are empty
     if (postContent.trim() === "" && !postImage) return;
 
-    // Create a new post object
     const newPost = {
-      id: Math.random(), // Generating a random ID for the post
+      id: Math.random(),
       desc: postContent,
       feedImage: postImage,
-      userid: 1, // Current user's id
+      userid: 1,
       name: CurrentUser[0].name,
       feedProfile: CurrentUser[0].ProfileImage,
     };
 
-    // Trigger post addition in the parent component
     onPostAdded(newPost);
 
-    // Reset input fields after submission
-    resetForm();
-  };
-
-  // Resetting the form fields
-  const resetForm = () => {
-    setPostContent(""); // Clear post text
-    setPostImage(null); // Clear the selected image
+    setPostContent("");
+    setPostImage(null);
   };
 
   return (
@@ -62,17 +51,16 @@ const ProfilePostForm = ({ onPostAdded }) => {
           type="text"
           placeholder="What's on your mind?"
           value={postContent}
-          onChange={(e) => setPostContent(e.target.value)} // Update post content
+          onChange={(e) => setPostContent(e.target.value)}
         />
       </div>
 
-      {/* Image preview section */}
       {postImage && (
         <div className="image-preview">
           <img src={postImage} alt="Preview" />
           <button
             type="button"
-            onClick={() => setPostImage(null)} // Remove the image
+            onClick={() => setPostImage(null)}
             className="btn-remove"
           >
             Remove Image
@@ -87,8 +75,8 @@ const ProfilePostForm = ({ onPostAdded }) => {
             id="imageUpload"
             type="file"
             accept="image/*"
-            style={{ display: "none" }} // Hide the default file input
-            onChange={handleImageUpload} // Handle image file selection
+            style={{ display: "none" }}
+            onChange={handleImageUpload}
           />
         </label>
 
